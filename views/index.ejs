@@ -1,0 +1,52 @@
+<%- include('layout/header.ejs'); -%>
+<header>
+  <h2>Proyecto Academico</h2>
+</header>
+<main>
+  <!-- <h4>Gestión Usuarios</h4> -->
+  <a class="btn-button" href="form/usuarios">Registrar Usuario</a>
+  <div class="container-table">
+    <table id="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Foto</th>
+          <th>Nombres</th>
+          <th>Apellidos</th>
+          <th>Correo</th>
+          <th>Rol</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% users.forEach(function(user){ %>
+        <tr>
+          <td><%= user._id %></td>
+          <td>
+            <img
+              class="photo"
+              width="38"
+              src="https://ui-avatars.com/api/?name=<%= user.name %>+<%= user.lastname %>?background=random"
+              alt=""
+            />
+          </td>
+          <td><%= user.name %></td>
+          <td><%= user.lastname %></td>
+          <td><%= user.email %></td>
+          <td><%= user.role %></td>
+          <td>
+            <a href="/form/usuarios/<%= user._id %>">Editar</a>
+            <button
+              class="button-danger"
+              onclick="deleteMessageUser('<%= user._id %>',{name:'<%= user.name %>'})"
+            >
+              Eliminar
+            </button>
+          </td>
+        </tr>
+        <% })%>
+      </tbody>
+    </table>
+  </div>
+</main>
+<%- include('layout/footer.ejs'); -%>

@@ -1,0 +1,28 @@
+<%- include('layout/header.ejs'); -%>
+<div class="container-form">
+  <form
+    class="form"
+    id="formRegisterUser"
+    action="/save/usuarios"
+    method="post"
+  >
+    <h2 class="title">Formulario Usuario</h2>
+    <label for="name">Nombres: <span class="error" id="error-name">El campo nombre es obligatorio</span> </label>
+    <input type="text" id="name" name="name" />
+    <label for="lastname">Apellidos: <span class="error" id="error-lastname">El campo apellido es obligatorio</span></label>
+    <input type="text" id="lastname" name="lastname" />
+    <label for="email">Correo: <span class="error" id="error-email">El campo correo es obligatorio</span></label>
+    <input type="email" id="email" name="email" />
+    <label for="">Rol: <span class="error" id="error-role">El campo rol es obligatorio</span></label>
+    <select name="role" id="role">
+      <option disabled selected value="">Seleccionar</option>
+      <option value="administrador">Administrador</option>
+      <option value="usuario">Usuario</option>
+    </select>
+    <div class="form-actions">
+      <a href="/">Volver</a>
+      <button type="button" id="btnRegisterUser" class="button-primary">Registrar</button>
+    </div>
+  </form>
+</div>
+<%- include('layout/footer.ejs'); -%>
