@@ -1,53 +1,55 @@
-import {createUser, getUsers, getUser, deleteUser, updateUser} from '../services/userService.js';
+import { createUser, deleteUser, getUser, getUsers, updateUser } from "../services/userService.js"
 
-/*Controladores para las rutas de usuarios deleteUser, 
-edithViewUser, formUserView, indexView,saveUser,updatedUser*/
-
-export const indexView = async (req, res) => {
+export const indexView = async (request, response) => {
     try {
-        const users = await getUsers();
-        res.render('index', { users });
+        const users = await getUsers()
+        response.render('index', { users })
     } catch (error) {
-        res.status(500).send("Error al obtener los usuarios");
-    }
-};
 
-export const formUserView = (req, res) => {
+    }
+}
+
+export const formUserView = async (request, response) => {
     try {
-        res.render('form');
+        response.render('form')
     } catch (error) {
-        res.status(500).send("Error al cargar el formulario de usuario");
-    }
-};
 
-export const saveUser = async (req, res) => {
+    }
+}
+
+export const saveUser = async (request, response) => {
     try {
-        const user = req.body;
+        const user = request.body;
         const userCreated = await createUser(user);
-        res.redirect('/');
+        response.redirect('/')
     } catch (error) {
-        res.status(500).send("Error al guardar el usuario");
-    }
-};
 
-export const edithViewUser = async (req, res) => {
-    try {
-        const { id } = req.params;
-        const user = await getUser(id);
-        res.render('editForm', { user });
-    } catch (error) {
-        res.status(500).send("Error al cargar el formulario de edición de usuario");
     }
-};
+}
 
-export const updatedUser = async (req, res) => {
+export const edithViewUser = async (request, response) => {
     try {
-        const { id } = req.params;
-        const user = req.body;
-        const userUpdated = await updateUser(id, user);
-        res.redirect('/');
+        const { id } = request.params;
+
+        const user = await getUser(id)
+        console.log(user);
+        response.render('editForm', { user })
     } catch (error) {
-        res.status(500).send("Error al actualizar el usuario");
+
+    }
+}
+
+export const updatedUser = async (request, response) => {
+    try {
+        console.log(request.params);
+        
+        const { id } = request.params;
+        const user = request.body;
+        const userUpdated = await updateUser(id, user)
+        response.redirect('/')
+    } catch (error) {
+        console.log(error);
+
     }
 }
 
@@ -57,7 +59,7 @@ export const deletedUser = async (request, response) => {
         const deletedUser = await deleteUser(id)
         response.redirect('/')
     } catch (error) {
-        response.status(500).send("Error al eliminar el usuario");
+        console.log(error);
 
     }
 }

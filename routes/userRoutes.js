@@ -1,17 +1,13 @@
-//Definir rutas y conectarlas con el controller
+import { Router } from "express";
+import { deletedUser, edithViewUser, formUserView, indexView, saveUser, updatedUser } from "../controllers/userController.js";
 
-import { Router } from 'express';
-import { deletedUser, edithViewUser, formUserView, indexView,saveUser,updatedUser } from '../controllers/userController.js';
+const router = Router()
 
-const router = Router();
-
-//Rutas para usuarios siguiendo el patrón RESTful peticiones http
-
-router.get('/', indexView);
-router.get('/form/usuarios', formUserView);
-router.post('/save/usuarios', saveUser);
-router.get('/form/usuarios/:id', edithViewUser);
-router.post('/update/usuarios/:id', updatedUser);
-router.post('/delete/usuarios/:id', deletedUser);
+router.get('/', indexView)
+router.get('/form/usuarios', formUserView)
+router.post('/save/usuarios', saveUser)
+router.get('/form/usuarios/:id', edithViewUser)
+router.post('/update/usuarios/:id', updatedUser)
+router.post('/delete/usuarios/:id', deletedUser)
 
 export default router;
