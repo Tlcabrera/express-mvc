@@ -14,7 +14,7 @@ export const indexView = async (req, res) => {
 
 export const formUserView = (req, res) => {
     try {
-        res.render('formUser');
+        res.render('form');
     } catch (error) {
         res.status(500).send("Error al cargar el formulario de usuario");
     }

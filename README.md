@@ -42,3 +42,13 @@ Usuario->Ruta HTTP (get obtener información post registrar o crear datos put ac
                     Vista (ejs)
                     |
                     Usuario
+
+### Mensajes comunes de los commit
+
+feat: agregar nuevas funcionalidades
+fix: corregir bug
+doc: actualizar documentación
+refactor: refactorizar código
+test: agregar test
+chore: cambios en configuración
+style: mejosras en los estilos
