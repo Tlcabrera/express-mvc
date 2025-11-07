@@ -52,3 +52,26 @@ refactor: refactorizar código
 test: agregar test
 chore: cambios en configuración
 style: mejosras en los estilos
+
+### Pruebas
+
+-**`Unit test`**: Preubas Unitarias comprobar el funcionamiento de una unidad de código (funciones). controller repositories services solo donde esta la lógica del negocio.
+-**`service/userService`**:getUsers, getUser,createUser,updateUser, deleteUser Mongoose
+
+-**`Herramientas`**:
+Mocha: Es el runner que ejecuta las pruebas
+Chai: Biblioteca de aserciones se utiliza para decir "Espero que esto sea igual a aquello"
+Sinon: Sirve para simular funciones o dependencias como mongoose(mocks/stubs)
+Ejm: userModel.find()
+sandbox.stub(userModel,"find").resolve([{name:"Tatiana"}])
+
+
+
+-**`Integration test`**: Comprobar que funciones todas las partes juntas del sistema: routes, controllers, models, services, BD.
+Se ejecuta todo el sistema en un entorno seguro
+Herramientas: 
+supertest: Permite simular peticiones HTTP (get, post, put, delete)en express sin levantar el servidor real
+mongodb-memory-server : Levanta un BD temporal en memoria 
+
+-**`Documentación`**: el soporte de las pruebas realizadas
+docs/PRUEBAS.md
