@@ -135,4 +135,5 @@ Usamos `mongodb-memory-server` para que Mongoose se conecte a un Mongo **efímer
   # y agrega un script
   "coverage": "c8 npm test"
   ```
+  para html covertura npx c8 report --reporter=html
 - Documenta cualquier cambio que hagas a la estructura para que el revisor lo entienda rápido.
